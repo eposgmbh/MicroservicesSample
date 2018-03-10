@@ -1,13 +1,13 @@
 version: '3'
 
 services:
-  webapi-service:
+  notes-service:
+    image: eposgmbh/notes-webapi:latest
     restart: always
     build: ../src/services/notes
-    image: eposgmbh/notes-webapi:latest
     entrypoint: >
-      /svc/wait-for-it.sh --strict postgres:5432 --
-      /svc/wait-for-it.sh --strict rabbitmq:5672 --
+      /svc/wait-for-it.sh --strict --timeout=30 postgres:5432 --
+      /svc/wait-for-it.sh --strict --timeout=30 rabbitmq:5672 --
       dotnet Notes.WebApi.dll
     ports:
       - 80:80
@@ -16,8 +16,8 @@ services:
       - rabbitmq
 
   postgres:
-    restart: always
     image: postgres
+    restart: always
     volumes:
       - postgres-data:/var/lib/postgresql/data
     environment:
@@ -27,8 +27,8 @@ services:
       - 5432:5432
 
   postgres-admin:
-    restart: always
     image: fenglc/pgadmin4
+    restart: always
     volumes:
       - postgres-admin-data:/var/lib/pgadmin
     ports:
@@ -37,8 +37,8 @@ services:
       - postgres
 
   rabbitmq:
-    restart: always
     image: rabbitmq
+    restart: always
     hostname: rabbitmq-host
     volumes:
       - rabbitmq-data:/var/lib/rabbitmq
