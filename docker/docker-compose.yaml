@@ -5,11 +5,15 @@ services:
     restart: always
     build: ../src/services/notes
     image: eposgmbh/notes-webapi:latest
-    entrypoint: /svc/wait-for-it.sh --strict postgres:5432 -- dotnet Notes.WebApi.dll
+    entrypoint: >
+      /svc/wait-for-it.sh --strict postgres:5432 --
+      /svc/wait-for-it.sh --strict rabbitmq:5672 --
+      dotnet Notes.WebApi.dll
     ports:
       - 80:80
     depends_on:
       - postgres
+      - rabbitmq
 
   postgres:
     restart: always
@@ -32,6 +36,16 @@ services:
     depends_on:
       - postgres
 
+  rabbitmq:
+    restart: always
+    image: rabbitmq
+    hostname: rabbitmq-host
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    ports:
+      - 5672:5672
+
 volumes:
   postgres-data:
   postgres-admin-data:
+  rabbitmq-data:
