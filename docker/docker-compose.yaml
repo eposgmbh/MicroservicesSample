@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  webapi-service:
+    restart: always
+    build: ../src/services/notes
+    image: eposgmbh/notes-webapi:latest
+    entrypoint: /svc/wait-for-it.sh --strict sql-service:5432 -- dotnet Notes.WebApi.dll
+    ports:
+      - 80:80
+    depends_on:
+      - sql-service
+
+  sql-service:
+    restart: always
+    image: postgres
+    volumes:
+      - sql-service-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: JklM8765
+    ports:
+      - 5432:5432
+
+  sql-admin:
+    restart: always
+    image: fenglc/pgadmin4
+    volumes:
+      - sql-admin-data:/var/lib/pgadmin
+    ports:
+      - 5050:5050
+    depends_on:
+      - sql-service
+
+volumes:
+  sql-service-data:
+  sql-admin-data:

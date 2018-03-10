@@ -1,0 +1,30 @@
+kind: PersistentVolume
+apiVersion: v1
+
+metadata:
+  name: sql-pv
+
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  storageClassName: sql-pv
+  hostPath:
+    path: /data/sql
+
+---
+
+kind: PersistentVolumeClaim
+apiVersion: v1
+
+metadata:
+  name: sql-pvc
+
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: sql-pv
