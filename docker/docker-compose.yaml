@@ -1,6 +1,9 @@
 version: '3'
 
 services:
+
+  # --- Notes Service ---
+
   notes-service:
     image: eposgmbh/notes-webapi:latest
     restart: always
@@ -16,7 +19,7 @@ services:
       - rabbitmq
 
   postgres:
-    image: postgres
+    image: postgres:10.3 # https://hub.docker.com/_/postgres/
     restart: always
     volumes:
       - postgres-data:/var/lib/postgresql/data
@@ -26,26 +29,7 @@ services:
     ports:
       - 5432:5432
 
-  postgres-admin:
-    image: fenglc/pgadmin4
-    restart: always
-    volumes:
-      - postgres-admin-data:/var/lib/pgadmin
-    ports:
-      - 5050:5050
-    depends_on:
-      - postgres
-
-  rabbitmq:
-    image: rabbitmq
-    restart: always
-    hostname: rabbitmq-host
-    volumes:
-      - rabbitmq-data:/var/lib/rabbitmq
-    ports:
-      - 5672:5672
+# --- Volumes ---
 
 volumes:
   postgres-data:
-  postgres-admin-data:
-  rabbitmq-data:

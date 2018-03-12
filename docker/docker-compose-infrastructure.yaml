@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+
+  # --- Infrastructure ---
+
+  postgres-admin:
+    image: fenglc/pgadmin4:2.1 # https://hub.docker.com/r/fenglc/pgadmin4/
+    restart: always
+    volumes:
+      - postgres-admin-data:/var/lib/pgadmin
+    ports:
+      - 5050:5050
+    depends_on:
+      - postgres
+
+  rabbitmq:
+    image: rabbitmq:3.7.4-rc.4 # https://hub.docker.com/_/rabbitmq/
+    restart: always
+    hostname: rabbitmq-host
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    ports:
+      - 5672:5672
+
+# --- Volumes ---
+
+volumes:
+  postgres-admin-data:
+  rabbitmq-data:
