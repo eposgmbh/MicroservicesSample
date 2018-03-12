@@ -1,6 +1,6 @@
 # Microservice Sample
 
-Microservice sample with an Angular front end and an ASP.NET Core Web API back end. The front end communicates with the back end via an API Gateay und synchronous HTTP. The microservices talk to each other via asynchronous RabbitMQ Messaging.
+Microservice sample with a SPA Angular front end and several ASP.NET Core Web API back ends. The front end communicates with the back ends via an API Gateay und synchronous HTTP. The microservices talk to each other via asynchronous RabbitMQ messaging.
 
 # Run
 

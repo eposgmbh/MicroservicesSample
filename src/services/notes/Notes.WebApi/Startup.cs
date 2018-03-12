@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -17,6 +18,8 @@ using Notes.Persistence;
 using Npgsql.EntityFrameworkCore;
 
 using Swashbuckle.AspNetCore.Swagger;
+
+#pragma warning disable 1591
 
 namespace Notes.WebApi
 {
@@ -35,7 +38,17 @@ namespace Notes.WebApi
             services.AddDbContext<NoteContext>(options => options.UseNpgsql(Configuration["ConnectionString"]));
 
             services.AddSwaggerGen(c => {
-                c.SwaggerDoc("v1", new Info { Title = "Notes.WebApi", Version = "v1" });
+                c.SwaggerDoc(
+                    "v1",
+                    new Info {
+                        Title = "Notes.WebApi",
+                        Version = "v1",
+                        Description = "Notes Wep API",
+                        Contact = new Contact { Name = "Epos GmbH", Url = "https://github.com/eposgmbh/" }
+                    }
+                );
+
+                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Notes.WebApi.xml"));
             });
 
             services.AddScoped<INoteRepository, NoteRepository>();

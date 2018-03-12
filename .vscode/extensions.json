@@ -7,6 +7,7 @@
         "PeterJausovec.vscode-docker",
         "ms-vscode.PowerShell",
         "ms-vsts.team",
-        "redhat.vscode-yaml"
+        "redhat.vscode-yaml",
+        "k--kato.docomment"
     ]
 }
