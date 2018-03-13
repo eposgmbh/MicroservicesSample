@@ -2,12 +2,12 @@
 
 Microservice sample with a SPA Angular front end and several ASP.NET Core Web API back ends. The front end communicates with the back ends via an API Gateay und synchronous HTTP. The microservices talk to each other via asynchronous RabbitMQ messaging.
 
-# Run
+## Run
 
 Run the following ```docker-compose``` command in the ```/docker``` folder:
 
 ```bash
-$ docker-compose up --build
+$ docker-compose -f docker-compose.yaml -f docker-compose-infrastructure.yaml up --build
 ```
 
 ## Usage
@@ -29,7 +29,7 @@ curl -X POST http://localhost/api/v1/notes -H  "Content-Type: application/json" 
 
 ```
 
-# Architecture Guidance
+## Architecture Guidance
 
 - https://martinfowler.com/articles/microservices.html
 - https://www.youtube.com/watch?v=wgdBVIX9ifA
