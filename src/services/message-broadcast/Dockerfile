@@ -10,10 +10,10 @@ RUN dotnet publish -c Release -o dist
 FROM microsoft/aspnetcore:2.0
 
 WORKDIR /svc
-COPY --from=build-env /build/Notes.WebApi/dist ./
+COPY --from=build-env /build/MessageBroadcast.WebApi/dist ./
 ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh ./
 RUN chmod +x wait-for-it.sh
 
-EXPOSE 5000
+EXPOSE 5001
 
-ENTRYPOINT ["dotnet", "Notes.WebApi.dll"]
+ENTRYPOINT ["dotnet", "MessageBroadcast.WebApi.dll"]

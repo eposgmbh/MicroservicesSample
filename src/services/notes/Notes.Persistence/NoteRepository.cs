@@ -52,7 +52,12 @@ namespace Notes.Persistence
 
             theNote.Text = note.Text;
             theNote.Author = note.Author;
-            theNote.Updated = note.Updated;
+
+            if (note.Updated != theNote.Updated) {
+                theNote.Updated = note.Updated;
+            } else {
+                theNote.Updated = DateTime.Now;
+            }
 
             myContext.Notes.Update(theNote);
             myContext.SaveChanges();

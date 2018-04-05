@@ -16,5 +16,6 @@
         "kubernetes": "kubernetes/*.yaml",
         "https://raw.githubusercontent.com/aanand/compose-file/master/schema/data/config_schema_v3.0.json": "docker/*.yaml"
     },
-    "yaml.format.enable": false
+    "yaml.format.enable": false,
+    "csharp.referencesCodeLens.enabled": true
 }

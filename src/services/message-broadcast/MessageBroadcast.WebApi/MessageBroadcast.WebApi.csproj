@@ -6,20 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Projectreference Include="../Notes.Model/Notes.Model.csproj" />
-    <Projectreference Include="../Notes.Persistence/Notes.Persistence.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.0.0-preview1-final" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="2.2.0" />
     <PackageReference Include="Epos.Eventing" Version="0.9.3" />
     <PackageReference Include="Epos.Eventing.RabbitMQ" Version="0.9.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
   </ItemGroup>
 
 </Project>

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -11,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 #pragma warning disable 1591
 
-namespace Notes.WebApi
+namespace MessageBroadcast.WebApi
 {
     public class Program
     {
@@ -25,7 +24,7 @@ namespace Notes.WebApi
                 .UseStartup<Startup>();
 
             theWebHostBuilder
-                .UseUrls("http://0.0.0.0:5000");
+                .UseUrls("http://0.0.0.0:5001");
 
             return theWebHostBuilder.Build();
         }

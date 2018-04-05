@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Mvc;
 
+using Epos.Eventing;
+
 using Notes.Model;
+using Notes.WebApi.IntegrationEvents;
 
 namespace Notes.WebApi.Controllers
 {
@@ -14,10 +18,15 @@ namespace Notes.WebApi.Controllers
     public class NotesController : Controller
     {
         private readonly INoteRepository myNoteRepository;
+        private readonly IIntegrationEventPublisher myIntegrationEventPublisher;
 
         /// <summary> Creates an instance of the <b>NotesController</b> class. </summary>
         /// <param name="noteRepository"> Note repository </param>
-        public NotesController(INoteRepository noteRepository) => myNoteRepository = noteRepository;
+        /// <param name="integrationEventPublisher"> Integration Event Publisher </param>
+        public NotesController(INoteRepository noteRepository, IIntegrationEventPublisher integrationEventPublisher) {
+            myIntegrationEventPublisher = integrationEventPublisher;
+            myNoteRepository = noteRepository;
+        }
 
         /// <summary> Gets all notes. </summary>
         /// <returns> All notes </returns>
@@ -51,6 +60,9 @@ namespace Notes.WebApi.Controllers
         [ProducesResponseType(201)]
         public IActionResult AddNote([FromBody] Note note) {
             myNoteRepository.AddNote(note);
+
+            myIntegrationEventPublisher.Publish(new NoteAddedIntegrationEvent { AddedNote = note });
+
             return CreatedAtRoute(nameof(GetNoteById), new { id = note.Id }, note);
         }
 

@@ -8,6 +8,7 @@
         "ms-vscode.PowerShell",
         "ms-vsts.team",
         "redhat.vscode-yaml",
-        "k--kato.docomment"
+        "k--kato.docomment",
+        "reflectiondm.classynaming"
     ]
 }

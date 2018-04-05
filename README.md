@@ -4,7 +4,7 @@ Microservices sample with a SPA Angular front end and several ASP.NET Core Web A
 
 ## Run
 
-Run the following ```docker-compose``` command in the ```/docker``` folder:
+Run the following `docker-compose` command in the `/docker` folder:
 
 ```bash
 $ docker-compose -f docker-compose.yaml -f docker-compose-infrastructure.yaml up --build
@@ -20,12 +20,12 @@ $ docker-compose -f docker-compose.yaml -f docker-compose-infrastructure.yaml up
 
 ### Notes Web-API
 
-Make HTTP requests to ```localhost:80```, for example:
+Make HTTP requests to `localhost:80`, for example:
 
 ```bash
 curl -X GET http://localhost/api/v1/notes
 curl -X GET http://localhost/api/v1/notes/note-id
-curl -X POST http://localhost/api/v1/notes -H  "Content-Type: application/json" -d '{  "id": "3232-dds-32",  "text": "This is a text.",  "author": "Jan Bohlen" }'
+curl -X POST http://localhost/api/v1/notes -H "Content-Type: application/json" -d '{ "text": "This is a text.", "author": "Jan Bohlen" }'
 
 ```
 

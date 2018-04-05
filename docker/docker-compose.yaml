@@ -13,23 +13,19 @@ services:
       /svc/wait-for-it.sh --strict --timeout=30 rabbitmq:5672 --
       dotnet Notes.WebApi.dll
     ports:
-      - 80:80
+      - 80:5000
     depends_on:
       - postgres
       - rabbitmq
 
-  postgres:
-    image: postgres:10.3 # https://hub.docker.com/_/postgres/
+  message-broadcast-service:
+    image: eposgmbh/message-broadcast:latest
     restart: always
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-    environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: JklM8765
+    build: ../src/services/message-broadcast
+    entrypoint: >
+      /svc/wait-for-it.sh --strict --timeout=30 notes-service:5000 --
+      dotnet MessageBroadcast.WebApi.dll
     ports:
-      - 5432:5432
-
-# --- Volumes ---
-
-volumes:
-  postgres-data:
+      - 81:5001
+    depends_on:
+      - notes-service

@@ -11,6 +11,17 @@
             ],
             "problemMatcher": "$msCompile",
             "group": "build"
+        },
+        {
+            "label": "build MessageBroadcast Solution",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/services/message-broadcast/MessageBroadcast.sln"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": "build"
         }
     ]
 }

@@ -4,6 +4,17 @@ services:
 
   # --- Infrastructure ---
 
+  postgres:
+    image: postgres:10.3 # https://hub.docker.com/_/postgres/
+    restart: always
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: JklM8765
+    ports:
+      - 5432:5432
+
   postgres-admin:
     image: fenglc/pgadmin4:2.1 # https://hub.docker.com/r/fenglc/pgadmin4/
     restart: always
@@ -15,16 +26,18 @@ services:
       - postgres
 
   rabbitmq:
-    image: rabbitmq:3.7.4-rc.4 # https://hub.docker.com/_/rabbitmq/
+    image: rabbitmq:3.7.4-management-alpine # https://hub.docker.com/_/rabbitmq/
     restart: always
     hostname: rabbitmq-host
     volumes:
       - rabbitmq-data:/var/lib/rabbitmq
     ports:
       - 5672:5672
+      - 15672:15672
 
 # --- Volumes ---
 
 volumes:
+  postgres-data:
   postgres-admin-data:
   rabbitmq-data:
