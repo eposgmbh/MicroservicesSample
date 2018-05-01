@@ -1,0 +1,38 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Angular SPA
+    </mat-card-title>
+    <mat-card-subtitle>
+      Sample Angular app
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab label="Security">
+        <ng-template mat-tab-label>
+          <mat-icon>security</mat-icon>
+        </ng-template>
+        <div class="tab-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis
+          vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. </div>
+      </mat-tab>
+      <mat-tab label="Attachment">
+        <ng-template mat-tab-label>
+          <mat-icon>attach_file</mat-icon>
+        </ng-template>
+        <div class="tab-content">
+          <p>{{ environmentName }}</p>
+          <p>API Gateway URI: {{ apiGatewayUri}} </p>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>OK</button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card>
+  <router-outlet></router-outlet>
+</mat-card>

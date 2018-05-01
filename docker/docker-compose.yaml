@@ -13,7 +13,7 @@ services:
       /svc/wait-for-it.sh --strict --timeout=30 rabbitmq:5672 --
       dotnet Notes.WebApi.dll
     ports:
-      - 80:5000
+      - 5000:5000
     depends_on:
       - postgres
       - rabbitmq
@@ -26,6 +26,30 @@ services:
       /svc/wait-for-it.sh --strict --timeout=30 notes-service:5000 --
       dotnet MessageBroadcast.WebApi.dll
     ports:
-      - 81:5001
+      - 5001:5001
     depends_on:
       - notes-service
+
+  notes-api-gateway:
+    image: eposgmbh/notes-api-gateway:latest
+    restart: always
+    build: ../src/apps/notes/Notes.ApiGateway
+    entrypoint: >
+      /svc/wait-for-it.sh --strict --timeout=30 notes-service:5000 --
+      dotnet Notes.ApiGateway.dll
+    ports:
+      - 4000:4000
+    depends_on:
+      - notes-service
+
+  notes-spa:
+    image: eposgmbh/notes-spa:latest
+    restart: always
+    build: ../src/apps/notes/Notes.Spa
+    entrypoint: >
+      /wait-for-it.sh --strict --timeout=30 notes-api-gateway:4000 --
+      nginx -g "daemon off;"
+    ports:
+      - 80:80
+    depends_on:
+      - notes-api-gateway

@@ -10,6 +10,8 @@ using Epos.Eventing;
 using Notes.Model;
 using Notes.WebApi.IntegrationEvents;
 
+using Swashbuckle.AspNetCore.SwaggerGen;
+
 namespace Notes.WebApi.Controllers
 {
     /// <summary> Notes V1 Controller </summary>
@@ -33,6 +35,7 @@ namespace Notes.WebApi.Controllers
         /// <response code="200"> Success. </response>
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<Note>), 200)]
+        [SwaggerOperation(nameof(GetAllNotes))]
         public IEnumerable<Note> GetAllNotes() => myNoteRepository.GetAllNotes();
 
         /// <summary> Gets a note by id. </summary>
@@ -43,6 +46,7 @@ namespace Notes.WebApi.Controllers
         [HttpGet("{id}", Name = nameof(GetNoteById))]
         [ProducesResponseType(typeof(Note), 200)]
         [ProducesResponseType(404)]
+        [SwaggerOperation(nameof(GetNoteById))]
         public IActionResult GetNoteById(string id) {
             Note theNote = myNoteRepository.GetNoteById(id);
             if (theNote == null) {
@@ -58,6 +62,7 @@ namespace Notes.WebApi.Controllers
         /// <response code="201"> The note is created. </response>
         [HttpPost]
         [ProducesResponseType(201)]
+        [SwaggerOperation(nameof(AddNote))]
         public IActionResult AddNote([FromBody] Note note) {
             myNoteRepository.AddNote(note);
 
@@ -74,6 +79,7 @@ namespace Notes.WebApi.Controllers
         [HttpDelete("{id}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
+        [SwaggerOperation(nameof(DeleteNote))]
         public IActionResult DeleteNote(string id) {
             if (myNoteRepository.Delete(id)) {
                 return NoContent();
@@ -94,6 +100,7 @@ namespace Notes.WebApi.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
+        [SwaggerOperation(nameof(UpdateNote))]
         public IActionResult UpdateNote(string id, [FromBody] Note note) {
             if (id != note.Id) {
                 return BadRequest();

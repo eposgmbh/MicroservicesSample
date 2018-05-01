@@ -1,0 +1,22 @@
+{
+    "ReRoutes": [
+        {
+            "DownstreamPathTemplate": "/api/V1/notes",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "notes-service",
+                    "Port": 5000
+                }
+            ],
+            "UpstreamPathTemplate": "/bff/notes",
+            "UpstreamHttpMethod": [
+                "Get"
+            ]
+        }
+    ],
+    "GlobalConfiguration": {
+        "RequestIdKey": "OcRequestId",
+        "AdministrationPath": "/administration"
+    }
+}

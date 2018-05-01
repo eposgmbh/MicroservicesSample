@@ -1,0 +1,16 @@
+<mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="text">
+    <mat-header-cell *matHeaderCellDef>Text</mat-header-cell>
+    <mat-cell *matCellDef="let note">{{note.text}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="author">
+    <mat-header-cell *matHeaderCellDef>Author</mat-header-cell>
+    <mat-cell *matCellDef="let note">{{note.author}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="updated">
+    <mat-header-cell *matHeaderCellDef>Updated</mat-header-cell>
+    <mat-cell *matCellDef="let note">{{note.updated | date}}</mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

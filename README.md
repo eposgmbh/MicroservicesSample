@@ -14,18 +14,16 @@ $ docker-compose -f docker-compose.yaml -f docker-compose-infrastructure.yaml up
 
 ### Angular front end
 
-```ts
-// TODO
-```
+Launch a browser on http://localhost:80.
 
 ### Notes Web-API
 
-Make HTTP requests to `localhost:80`, for example:
+Make HTTP requests to `localhost:5000`, for example:
 
 ```bash
-curl -X GET http://localhost/api/v1/notes
-curl -X GET http://localhost/api/v1/notes/note-id
-curl -X POST http://localhost/api/v1/notes -H "Content-Type: application/json" -d '{ "text": "This is a text.", "author": "Jan Bohlen" }'
+curl -X GET http://localhost:5000/api/v1/notes
+curl -X GET http://localhost:5000/api/v1/notes/note-id
+curl -X POST http://localhost:5000/api/v1/notes -H "Content-Type: application/json" -d '{ "text": "This is a text.", "author": "Jan Bohlen" }'
 
 ```
 

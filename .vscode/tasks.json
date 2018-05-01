@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build Notes Solution",
+            "label": "build Notes Service Solution",
             "type": "process",
             "command": "dotnet",
             "args": [
@@ -19,6 +19,17 @@
             "args": [
                 "build",
                 "${workspaceFolder}/src/services/message-broadcast/MessageBroadcast.sln"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": "build"
+        },
+        {
+            "label": "build Notes App Solution",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/apps/notes/Notes.sln"
             ],
             "problemMatcher": "$msCompile",
             "group": "build"

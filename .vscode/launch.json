@@ -5,7 +5,7 @@
             "name": "Debug Notes.WepApi",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build Notes Solution",
+            "preLaunchTask": "build Notes Service Solution",
             "program": "${workspaceFolder}/src/services/notes/Notes.WebApi/bin/Debug/netcoreapp2.0/Notes.WebApi.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/services/notes/Notes.WebApi",
@@ -34,6 +34,30 @@
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
             }
+        },
+        {
+            "name": "Debug Notes App Solution",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build Notes App Solution",
+            "program": "${workspaceFolder}/src/apps/notes/Notes.ApiGateway/bin/Debug/netcoreapp2.0/Notes.ApiGateway.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/apps/notes/Notes.ApiGateway",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart",
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost:4200",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}/src/apps/notes/Notes.Spa"
         },
         {
             "name": ".NET Core Attach",
