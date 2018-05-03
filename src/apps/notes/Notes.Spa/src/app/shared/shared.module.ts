@@ -9,12 +9,13 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatTableModule } from "@angular/material/table";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
+import { MatInputModule } from "@angular/material/input";
 
 @NgModule({
   imports: [CommonModule],
   exports: [
     CommonModule, FormsModule, HttpClientModule,
-    MatCardModule, MatTabsModule, MatSnackBarModule, MatTableModule, MatButtonModule, MatIconModule
+    MatCardModule, MatTabsModule, MatSnackBarModule, MatTableModule, MatButtonModule, MatIconModule, MatInputModule
   ]
 })
 export class SharedModule { }

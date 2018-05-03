@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -29,7 +30,10 @@ namespace Notes.ApiGateway
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
             app.UseCors(cp => {
-                cp.AllowAnyOrigin();
+                cp
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
             });
             app.UseOcelot().Wait();
         }

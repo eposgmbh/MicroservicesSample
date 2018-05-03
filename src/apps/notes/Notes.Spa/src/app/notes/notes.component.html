@@ -14,3 +14,23 @@
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
+
+<br />
+
+<mat-form-field>
+  <input matInput placeholder="Text" [(ngModel)]="newNote.text">
+</mat-form-field>
+<br/>
+
+<mat-form-field>
+  <input matInput placeholder="Author" [(ngModel)]="newNote.author">
+</mat-form-field>
+<br/>
+
+<mat-form-field>
+  <input matInput placeholder="Updated" value="{{newNote.updated | date}}" readonly>
+</mat-form-field>
+<br/>
+<br/>
+
+<button mat-raised-button color="primary" (click)="addNote()">Add note</button>

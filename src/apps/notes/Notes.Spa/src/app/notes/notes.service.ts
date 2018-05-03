@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { Observable } from 'rxjs/Observable';
+
+import { Note } from "./note";
 import { environment } from "../../environments/environment";
 
 @Injectable()
@@ -9,14 +12,11 @@ export class NotesService {
 
   constructor(private http: HttpClient) { }
 
-  public getNotes() {
+  getNotes(): Observable<Note[]> {
     return this.http.get<Note[]>(this.serviceUrl);
   }
-}
 
-export interface Note {
-  id: string;
-  text: string;
-  author: string;
-  updated: Date;
+  addNote(note: Note) {
+    return this.http.post(this.serviceUrl, note);
+  }
 }

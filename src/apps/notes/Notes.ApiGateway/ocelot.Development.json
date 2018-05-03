@@ -11,7 +11,22 @@
             ],
             "UpstreamPathTemplate": "/bff/notes",
             "UpstreamHttpMethod": [
-                "Get"
+                "GET",
+                "POST"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/v1/notes/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "notes-service",
+                    "Port": 5000
+                }
+            ],
+            "UpstreamPathTemplate": "/bff/notes/{id}",
+            "UpstreamHttpMethod": [
+                "GET"
             ]
         }
     ],
