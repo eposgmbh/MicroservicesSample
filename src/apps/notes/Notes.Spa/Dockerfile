@@ -1,4 +1,4 @@
-FROM node:8.6 as build-env
+FROM node:8.10 as build-env
 
 WORKDIR /build
 
@@ -6,7 +6,7 @@ COPY package.json ./
 RUN npm install
 
 COPY ./ ./
-RUN npm run build -- --prod --environment prod
+RUN npm run build -- --prod
 
 # ---------------------------------------
 

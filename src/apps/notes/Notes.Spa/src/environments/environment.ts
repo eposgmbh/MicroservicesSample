@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  name: "Development",
-  apiGatewayUri: "http://localhost:4000/"
+  name: 'Development',
+  apiGatewayUri: 'http://localhost:4000/'
 };

@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
-import { DataSource } from '@angular/cdk/table';
 
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
-
-import { Note } from "./note";
+import { NotesDataSource } from './notes.data.source';
+import { Note } from './note';
 import { NotesService } from './notes.service';
 
 @Component({
@@ -15,9 +12,9 @@ import { NotesService } from './notes.service';
 export class NotesComponent {
   constructor(private notesService: NotesService) { }
 
-  dataSource: NotesDataSource = new NotesDataSource(this.notesService);
-  displayedColumns = ["text", "author", "updated"];
-  newNote: Note = new Note();
+  dataSource = new NotesDataSource(this.notesService);
+  displayedColumns = ['text', 'author', 'updated'];
+  newNote = new Note();
 
   addNote() {
     this.notesService.addNote(this.newNote).subscribe(() => {
@@ -25,30 +22,4 @@ export class NotesComponent {
       this.dataSource.reload();
     });
   }
-}
-
-class NotesDataSource extends DataSource<Note> {
-  constructor(private notesService: NotesService) {
-    super();
-  }
-
-  private firstCall = true;
-  subject: Subject<Note[]> = new Subject<Note[]>();
-
-  reload() {
-    this.notesService.getNotes().subscribe(notes => {
-      this.subject.next(notes);
-    });
-  }
-
-  connect(): Observable<Note[]> {
-    if (this.firstCall) {
-      this.reload();
-      this.firstCall = false;
-    }
-
-    return this.subject;
-  }
-
-  disconnect() { }
 }
