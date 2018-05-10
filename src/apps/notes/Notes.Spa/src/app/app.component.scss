@@ -1,13 +1,24 @@
-mat-card {
-    margin: 32px;
-    max-width: 60%;
+::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
+    background-color: transparent;
 }
 
-mat-card-content {
-    margin-left: 50px;
-    margin-right: 50px;
+mat-sidenav {
+    padding: 16px;
+}
+
+mat-card {
+    margin: 32px;
+    width: 60%;
 }
 
 div.tab-content {
-    margin: 10px;
+    margin-top: 10px;
+}
+
+div.progress-bar {
+    position: fixed;
+    z-index: 99;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }

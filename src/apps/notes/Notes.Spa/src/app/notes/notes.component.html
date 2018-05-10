@@ -1,3 +1,6 @@
+<mat-form-field class="table-filter">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Table filter">
+</mat-form-field>
 <mat-table [dataSource]="dataSource">
   <ng-container matColumnDef="text">
     <mat-header-cell *matHeaderCellDef>Text</mat-header-cell>
@@ -17,20 +20,20 @@
 
 <br />
 
-<mat-form-field>
-  <input matInput placeholder="Text" [(ngModel)]="newNote.text">
-</mat-form-field>
-<br/>
+<mat-card>
+  <mat-form-field>
+    <input matInput placeholder="Text" [(ngModel)]="newNote.text">
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <input matInput placeholder="Author" [(ngModel)]="newNote.author">
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <input matInput placeholder="Updated" value="{{newNote.updated | date}}" readonly>
+  </mat-form-field>
+  <br/>
+  <br/>
 
-<mat-form-field>
-  <input matInput placeholder="Author" [(ngModel)]="newNote.author">
-</mat-form-field>
-<br/>
-
-<mat-form-field>
-  <input matInput placeholder="Updated" value="{{newNote.updated | date}}" readonly>
-</mat-form-field>
-<br/>
-<br/>
-
-<button mat-raised-button color="primary" (click)="addNote()">Add note</button>
+  <button mat-raised-button color="primary" [disabled]="newNote.text?.length == 0 || newNote.author?.length == 0" (click)="addNote();">ADD NOTE</button>
+</mat-card>

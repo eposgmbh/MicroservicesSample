@@ -1,4 +1,4 @@
-FROM node:8.10 as build-env
+FROM node:8.10-alpine as build-env
 
 WORKDIR /build
 
