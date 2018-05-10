@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -25,9 +26,9 @@ import { MatStepperModule } from '@angular/material/stepper';
   exports: [
     CommonModule, FormsModule, HttpClientModule,
     FlexLayoutModule,
-    MatCardModule, MatTabsModule, MatSnackBarModule, MatTableModule, MatButtonModule, MatIconModule, MatInputModule,
-    MatToolbarModule, MatSidenavModule, MatListModule, MatProgressBarModule, MatSelectModule, MatExpansionModule,
-    MatStepperModule
+    MatCardModule, MatTabsModule, MatSnackBarModule, MatTableModule, MatSortModule, MatButtonModule, MatIconModule,
+    MatInputModule, MatToolbarModule, MatSidenavModule, MatListModule, MatProgressBarModule, MatSelectModule,
+    MatExpansionModule, MatStepperModule
   ]
 })
 export class SharedModule { }

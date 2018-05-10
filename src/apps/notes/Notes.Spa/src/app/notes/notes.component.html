@@ -1,17 +1,17 @@
 <mat-form-field class="table-filter">
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Table filter">
 </mat-form-field>
-<mat-table [dataSource]="dataSource">
+<mat-table [dataSource]="dataSource" matSort>
   <ng-container matColumnDef="text">
-    <mat-header-cell *matHeaderCellDef>Text</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Text</mat-header-cell>
     <mat-cell *matCellDef="let note">{{note.text}}</mat-cell>
   </ng-container>
   <ng-container matColumnDef="author">
-    <mat-header-cell *matHeaderCellDef>Author</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Author</mat-header-cell>
     <mat-cell *matCellDef="let note">{{note.author}}</mat-cell>
   </ng-container>
   <ng-container matColumnDef="updated">
-    <mat-header-cell *matHeaderCellDef>Updated</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Updated</mat-header-cell>
     <mat-cell *matCellDef="let note">{{note.updated | date}}</mat-cell>
   </ng-container>
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

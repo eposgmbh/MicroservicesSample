@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Form } from '@angular/forms';
 
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material';
 
 import { Note } from './note';
 import { NotesService } from './notes.service';
@@ -18,6 +19,7 @@ export class NotesComponent implements OnInit {
   dataSource: MatTableDataSource<Note>;
   displayedColumns = ['text', 'author', 'updated'];
   newNote = new Note();
+  @ViewChild(MatSort) sort: MatSort;
 
   ngOnInit(): void {
     this.reloadNotes();
@@ -27,6 +29,7 @@ export class NotesComponent implements OnInit {
     this.loadingIndicatorService.show();
     this.notesService.getNotes().subscribe(notes => {
       this.dataSource = new MatTableDataSource(notes);
+      this.dataSource.sort = this.sort;
       this.loadingIndicatorService.hide();
     });
   }
