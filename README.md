@@ -1,6 +1,6 @@
 # Microservices Sample
 
-Microservices sample with a SPA Angular front end and several ASP.NET Core Web API back ends. The front end communicates with the back ends via an API Gateay und synchronous HTTP. The microservices talk to each other via asynchronous RabbitMQ messaging.
+Microservices sample with a Angular SPA front end and several ASP.NET Core Web API back ends. The front end communicates with the back ends via an Ocelot API Gateway und synchronous HTTP. The microservices talk to each other via asynchronous RabbitMQ messaging.
 
 ## Run
 
@@ -35,6 +35,7 @@ curl -X POST http://localhost:5000/api/v1/notes -H "Content-Type: application/js
 
 ## License
 
+```
 MIT License
 
 Copyright (c) 2017 eposgmbh
@@ -56,3 +57,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+```
