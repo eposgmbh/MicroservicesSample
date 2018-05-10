@@ -1,4 +1,4 @@
-FROM microsoft/aspnetcore-build:2.0 AS build-env
+FROM microsoft/dotnet:2.1-sdk AS build-env
 
 WORKDIR /build
 COPY ./ ./
@@ -7,7 +7,7 @@ RUN dotnet publish -c Release -o dist
 
 # ---------------------------------------
 
-FROM microsoft/aspnetcore:2.0
+FROM microsoft/dotnet:2.1-aspnetcore-runtime
 
 WORKDIR /svc
 COPY --from=build-env /build/MessageBroadcast.WebApi/dist ./
