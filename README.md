@@ -1,5 +1,7 @@
 # Microservices Sample
 
+[![Build Status](https://travis-ci.com/eposgmbh/MicroservicesSample.svg?branch=master)](https://travis-ci.com/eposgmbh/MicroservicesSample)
+
 Microservices sample with a Angular SPA front end and several ASP.NET Core Web API back ends. The front end communicates with the back ends via an Ocelot API Gateway und synchronous HTTP. The microservices talk to each other via asynchronous RabbitMQ messaging.
 
 ## Run

@@ -1,0 +1,14 @@
+os: linux
+dist: trusty
+sudo: required
+language: bash
+
+services:
+  - docker
+
+script:
+  - docker-compose -f ./docker/docker-compose.yaml -f ./docker/docker-compose-infrastructure.yaml build --force-rm
+  - for image in $(docker images --filter=reference='eposgmbh/*' --format "{{.Repository}}"); do docker tag ${image}:latest ${image}:$(date -u "+%Y-%m-%d"); done
+  - docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASSWORD
+  - for image in $(docker images --filter=reference='eposgmbh/*' --format "{{.Repository}}:{{.Tag}}"); do docker push ${image}; done
+  - docker images --filter dangling=false
