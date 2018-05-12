@@ -1,4 +1,4 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
@@ -8,8 +8,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notes.Persistence", "Notes.Persistence\Notes.Persistence.csproj", "{D39EF566-01F2-40EA-8E89-CFF2A6CEF1FD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notes.WebApi", "Notes.WebApi\Notes.WebApi.csproj", "{87EE7C2D-9970-460C-B32F-AC872FC5116F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notes.WebApi.Client", "Notes.WebApi.Client\Notes.WebApi.Client.csproj", "{508A2BB4-0A52-4C2B-A77C-4AD14B06D394}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,17 +58,5 @@ Global
 		{87EE7C2D-9970-460C-B32F-AC872FC5116F}.Release|x64.Build.0 = Release|x64
 		{87EE7C2D-9970-460C-B32F-AC872FC5116F}.Release|x86.ActiveCfg = Release|x86
 		{87EE7C2D-9970-460C-B32F-AC872FC5116F}.Release|x86.Build.0 = Release|x86
-		{508A2BB4-0A52-4C2B-A77C-4AD14B06D394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{508A2BB4-0A52-4C2B-A77C-4AD14B06D394}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{508A2BB4-0A52-4C2B-A77C-4AD14B06D394}.Debug|x64.ActiveCfg = Debug|x64
-		{508A2BB4-0A52-4C2B-A77C-4AD14B06D394}.Debug|x64.Build.0 = Debug|x64
-		{508A2BB4-0A52-4C2B-A77C-4AD14B06D394}.Debug|x86.ActiveCfg = Debug|x86
-		{508A2BB4-0A52-4C2B-A77C-4AD14B06D394}.Debug|x86.Build.0 = Debug|x86
-		{508A2BB4-0A52-4C2B-A77C-4AD14B06D394}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{508A2BB4-0A52-4C2B-A77C-4AD14B06D394}.Release|Any CPU.Build.0 = Release|Any CPU
-		{508A2BB4-0A52-4C2B-A77C-4AD14B06D394}.Release|x64.ActiveCfg = Release|x64
-		{508A2BB4-0A52-4C2B-A77C-4AD14B06D394}.Release|x64.Build.0 = Release|x64
-		{508A2BB4-0A52-4C2B-A77C-4AD14B06D394}.Release|x86.ActiveCfg = Release|x86
-		{508A2BB4-0A52-4C2B-A77C-4AD14B06D394}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 EndGlobal

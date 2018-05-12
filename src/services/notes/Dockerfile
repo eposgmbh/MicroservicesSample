@@ -1,9 +1,15 @@
 FROM microsoft/dotnet:2.1-sdk AS build-env
 
 WORKDIR /build
-COPY ./ ./
 
-RUN dotnet publish -c Release -o dist
+COPY ./Notes.sln ./
+COPY ./Notes.Model/Notes.Model.csproj ./Notes.Model/
+COPY ./Notes.Persistence/Notes.Persistence.csproj ./Notes.Persistence/
+COPY ./Notes.WebApi/Notes.WebApi.csproj ./Notes.WebApi/
+RUN dotnet restore
+
+COPY ./ ./
+RUN dotnet publish --configuration Release --output dist
 
 # ---------------------------------------
 

@@ -21,7 +21,7 @@ services:
   message-broadcast-service:
     image: eposgmbh/message-broadcast:latest
     restart: always
-    build: ../src/services/message-broadcast
+    build: ../src/services/message-broadcast/MessageBroadcast.WebApi
     entrypoint: >
       /svc/wait-for-it.sh --strict --timeout=30 notes-service:5000 --
       dotnet MessageBroadcast.WebApi.dll
