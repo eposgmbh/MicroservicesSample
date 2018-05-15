@@ -15,18 +15,13 @@ namespace MessageBroadcast.WebApi
     public class Program
     {
         public static void Main(string[] args) {
-            BuildWebHost(args).Run();
+            CreateBuildWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) {
-            var theWebHostBuilder = WebHost
+        public static IWebHostBuilder CreateBuildWebHostBuilder(string[] args) =>
+            WebHost
                 .CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
-
-            theWebHostBuilder
+                .UseStartup<Startup>()
                 .UseUrls("http://0.0.0.0:5001");
-
-            return theWebHostBuilder.Build();
-        }
     }
 }

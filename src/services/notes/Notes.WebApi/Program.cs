@@ -16,18 +16,13 @@ namespace Notes.WebApi
     public class Program
     {
         public static void Main(string[] args) {
-            BuildWebHost(args).Run();
+            CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) {
-            var theWebHostBuilder = WebHost
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost
                 .CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
-
-            theWebHostBuilder
+                .UseStartup<Startup>()
                 .UseUrls("http://0.0.0.0:5000");
-
-            return theWebHostBuilder.Build();
-        }
     }
 }
