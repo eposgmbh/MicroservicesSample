@@ -9,6 +9,7 @@
         "ms-vsts.team",
         "redhat.vscode-yaml",
         "k--kato.docomment",
-        "reflectiondm.classynaming"
+        "reflectiondm.classynaming",
+        "eamodio.gitlens"
     ]
 }

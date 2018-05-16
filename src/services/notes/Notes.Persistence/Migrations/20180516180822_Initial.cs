@@ -1,6 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Notes.Persistence.Migrations
 {
@@ -13,8 +12,8 @@ namespace Notes.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    Author = table.Column<string>(nullable: true),
                     Text = table.Column<string>(nullable: true),
+                    Author = table.Column<string>(nullable: true),
                     Updated = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>

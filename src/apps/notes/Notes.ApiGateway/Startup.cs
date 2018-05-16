@@ -35,6 +35,7 @@ namespace Notes.ApiGateway
                     .AllowAnyMethod()
                     .AllowAnyHeader();
             });
+            app.UseWebSockets();
             app.UseOcelot().Wait();
         }
     }

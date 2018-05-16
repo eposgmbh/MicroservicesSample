@@ -1,5 +1,16 @@
+mat-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
 ::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
     background-color: transparent;
+}
+
+mat-sidenav-container {
+    margin-top: 64px;
 }
 
 mat-sidenav {

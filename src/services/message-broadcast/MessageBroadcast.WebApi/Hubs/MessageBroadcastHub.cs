@@ -7,8 +7,8 @@ namespace MessageBroadcast.WebApi.Hubs
 {
     public class MessageBroadcastHub : Hub
     {
-        public async Task Send(string message) {
-            await Clients.All.SendAsync(nameof(Send), message);
+        public async Task Message(string message) {
+            await Clients.All.SendAsync(nameof(Message), message);
         }
     }
 }

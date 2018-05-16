@@ -23,7 +23,7 @@ namespace MessageBroadcast.WebApi.IntegrationEvents
             var theMessage = $"Added note '{e.AddedNote.Text}' by {e.AddedNote.Author}.";
             System.Console.WriteLine(theMessage);
 
-            myMessageBroadcastHub.Clients.All.SendAsync("Send", theMessage);
+            myMessageBroadcastHub.Clients.All.SendAsync("Message", theMessage);
             h.Ack();
 
             return Task.CompletedTask;

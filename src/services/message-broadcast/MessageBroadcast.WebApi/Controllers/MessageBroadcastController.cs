@@ -28,7 +28,7 @@ namespace MessageBroadcast.WebApi.Controllers
         [HttpPost]
         [ProducesResponseType(200)]
         public IActionResult SendMessage([FromBody] string message) {
-            myHubContext.Clients.All.SendAsync("Send", message);
+            myHubContext.Clients.All.SendAsync("Message", message);
             return Ok();
         }
     }

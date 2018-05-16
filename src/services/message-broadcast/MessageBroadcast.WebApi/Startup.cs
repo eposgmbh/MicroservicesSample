@@ -35,6 +35,7 @@ namespace MessageBroadcast.WebApi
         public void ConfigureServices(IServiceCollection services) {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSignalR();
+            services.AddCors();
 
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc(
@@ -58,6 +59,14 @@ namespace MessageBroadcast.WebApi
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
+            app.UseCors(cp => {
+                cp
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials();
+            });
+
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MessageBroadcast.WebApi V1"));
 

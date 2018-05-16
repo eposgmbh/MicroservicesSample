@@ -10,7 +10,7 @@
 <mat-sidenav-container class="mat-typography">
   <mat-sidenav #sidenav autoFocus=false fxLayout="column" fxLayoutAlign="start start" fixedInViewport fixedTopGap="64">
     <mat-nav-list>
-      <a mat-list-item href="#">Einstellungen</a>
+      <a mat-list-item routerLink="/settings">Einstellungen</a>
       <a mat-list-item href="#">Hallo</a>
       <a mat-list-item href="#">Welt</a>
     </mat-nav-list>
@@ -162,8 +162,10 @@
       </mat-horizontal-stepper>
     </mat-card>
 
-    <mat-card>
-      <router-outlet></router-outlet>
+    <mat-card style="min-height: 600px">
+      <div [@routerTransition]="page.isActivated ? page.activatedRoute : null">
+        <router-outlet #page="outlet"></router-outlet>
+      </div>
     </mat-card>
   </mat-sidenav-content>
 </mat-sidenav-container>
