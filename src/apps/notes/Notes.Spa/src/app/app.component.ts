@@ -4,6 +4,7 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 
 import { environment } from '../environments/environment';
 import { LoadingIndicatorService } from './core/loading-indicator.service';
+import { AuthService } from './auth/auth.service';
 import { routerTransitionAnimation } from './router-transition.animation';
 
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
@@ -21,8 +22,13 @@ export class AppComponent implements OnInit {
   panelOpenState = false;
   selectedValue: string;
 
-  constructor(loadingIndicatorService: LoadingIndicatorService, private snackBar: MatSnackBar) {
+  constructor(
+    private loadingIndicatorService: LoadingIndicatorService,
+    private snackBar: MatSnackBar, public auth: AuthService
+  ) {
     loadingIndicatorService.appComponent = this;
+
+    auth.handleAuthentication();
   }
 
   ngOnInit(): void {

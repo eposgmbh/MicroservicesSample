@@ -10,13 +10,15 @@ import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthService } from './auth/auth.service';
 
-
-// the second parameter 'fr' is optional
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, BrowserAnimationsModule, CoreModule, SharedModule, AppRoutingModule],
-  providers: [{ provide: LOCALE_ID, useValue: 'de' }],
+  providers: [
+    AuthService,
+    { provide: LOCALE_ID, useValue: 'de' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

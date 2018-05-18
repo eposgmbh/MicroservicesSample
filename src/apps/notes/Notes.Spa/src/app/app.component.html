@@ -5,6 +5,13 @@
   &nbsp;
   <span>Notes SPA</span>
   <span style="flex: 1 1 auto"></span>
+  <button mat-button *ngIf="!auth.isAuthenticated()" (click)="auth.login()">
+    Log In
+  </button>
+
+  <button mat-button *ngIf="auth.isAuthenticated()" (click)="auth.logout()">
+    Log Out
+  </button>
 </mat-toolbar>
 
 <mat-sidenav-container class="mat-typography">
