@@ -4,7 +4,7 @@ import { Form } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material';
 
-import { LoadingIndicatorService } from '../core/loading-indicator.service';
+import { LoadingIndicatorService } from '../loading-indicator.service';
 
 @Component({
   selector: 'app-settings',

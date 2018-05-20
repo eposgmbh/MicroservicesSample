@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 
 import { environment } from '../environments/environment';
-import { LoadingIndicatorService } from './core/loading-indicator.service';
-import { AuthService } from './auth/auth.service';
+import { LoadingIndicatorService } from './loading-indicator.service';
+import { AuthService } from './auth.service';
 import { routerTransitionAnimation } from './router-transition.animation';
 
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';

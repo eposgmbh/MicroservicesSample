@@ -3,10 +3,11 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
+import { NotesModule } from './notes.module';
 import { Note } from './note';
 import { environment } from '../../environments/environment';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class NotesService {
   private readonly serviceUrl = `${environment.apiGatewayUri}bff/notes`;
 

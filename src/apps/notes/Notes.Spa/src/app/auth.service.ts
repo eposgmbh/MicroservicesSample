@@ -5,9 +5,9 @@ import { filter } from 'rxjs/operators';
 
 import * as auth0 from 'auth0-js';
 
-import { environment } from '../../environments/environment'
+import { environment } from '../environments/environment'
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class AuthService {
 
     auth0 = new auth0.WebAuth({

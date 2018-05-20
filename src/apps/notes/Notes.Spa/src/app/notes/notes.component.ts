@@ -6,7 +6,7 @@ import { MatSort } from '@angular/material';
 
 import { Note } from './note';
 import { NotesService } from './notes.service';
-import { LoadingIndicatorService } from '../core/loading-indicator.service';
+import { LoadingIndicatorService } from '../loading-indicator.service';
 
 @Component({
   selector: 'app-notes',

@@ -5,18 +5,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
 
-import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, CoreModule, SharedModule, AppRoutingModule],
+  imports: [BrowserModule, BrowserAnimationsModule, SharedModule, AppRoutingModule],
   providers: [
-    AuthService,
     { provide: LOCALE_ID, useValue: 'de' }
   ],
   bootstrap: [AppComponent]

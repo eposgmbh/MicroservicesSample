@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { AppComponent } from '../app.component';
+import { AppComponent } from './app.component';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class LoadingIndicatorService {
   appComponent: AppComponent;
 
